@@ -15,13 +15,10 @@ using namespace std;
 const int MAXN = 1000000;
 int a[MAXN + 5];
 
-int solve(int left, int right, int target, int offset) {
-    if (left >= right) {
-        if (a[left] != target)
-            return -1;
-        else
-            return offset + 1;
-    } 
+int solve(int left, int right, int K) {
+    if (K == 1) 
+        return a[left];
+    
     int mid = a[left];
     int i = left, j = right;
     while (i < j) {
@@ -42,17 +39,13 @@ int solve(int left, int right, int target, int offset) {
     }
     a[i] = mid;
     
-    /*for (int k = left; k <= right; ++k )
-        cout<<a[k]<<" ";
-    cout<<endl;*/
     
-    
-    if (mid == target) {
-        return offset + i - left + 1;
-    } else if (mid < target) {
-        return solve(i + 1, right, target, offset + i - left + 1);
+    if (i - left + 1 == K) {
+        return mid;
+    } else if (i - left + 1 < K) {
+        return solve(i + 1, right, K - (i - left + 1));
     } else {
-        return solve(left, i - 1, target, offset);
+        return solve(left, i - 1, K);
     }
 }
 
@@ -63,8 +56,10 @@ int main(){
 	ios::sync_with_stdio(false);
 	int N, K;
     cin>>N>>K;
+    if (K > N)
+        cout<<-1<<endl;
     for (int i = 0; i < N; ++i) 
         cin>>a[i];
-    cout<<solve(0, N - 1, K, 0)<<endl;
+    cout<<(K <= N ? solve(0, N - 1, K) : -1)<<endl;
 	return 0;
 }
