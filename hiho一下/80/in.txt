@@ -1,0 +1,13 @@
+12
+a
+ab
+abc
+abcde
+abcde
+abcba
+bcd
+bcde
+bcbbd
+bcac
+bee
+bbb
