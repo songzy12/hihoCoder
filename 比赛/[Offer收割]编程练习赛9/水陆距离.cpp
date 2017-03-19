@@ -3,7 +3,7 @@
 #include<cstdio>
 using namespace std;
 
-const int maxn = 800;
+const int maxn = 10000;
 int grid[maxn][maxn];
 bool visited[maxn][maxn];
 int dist[maxn][maxn];
