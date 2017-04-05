@@ -16,16 +16,20 @@ void expand(int m, int n, char dir) {
         return;
     if (n < 0 || n >= n0)
         return;
+    
     int s = state[m][n];
     char c = map[m][n];
     if (s == 1)
         return;
+    //printf("expand(%d, %d): `%c`, %d, %c\n", m, n, map[m][n], state[m][n], dir);
+    
     if (c == ' ') {
         state[m][n] = 1;
         if (dir != 'd')
             expand(m+1,n,'u');
-        if (dir != 'u')
+        if (dir != 'u') {
             expand(m-1,n,'d');
+        }
         if (dir != 'r')
             expand(m,n+1,'l');
         if (dir != 'l')
@@ -84,6 +88,7 @@ void expand(int m, int n, char dir) {
 int count;
 
 void bfs(int m, int n) {
+    //printf("bfs(%d, %d): %d\n", m, n, state[m][n]);
     if (map[m][n] != ' ' && state[m][n] == 0) 
         count += 2;
     else 
@@ -102,8 +107,8 @@ void bfs(int m, int n) {
 }
 
 int main() {
-    //freopen("in.txt", "r", stdin);
-    //freopen("out.txt", "w", stdout);
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
     scanf("%d %d ", &m0, &n0);
     for (int i = 0; i < m0; ++i) {
         getline(cin, map[i]);

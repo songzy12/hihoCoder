@@ -1,0 +1,1 @@
+// how to decide whether the two adjacent lines count.
