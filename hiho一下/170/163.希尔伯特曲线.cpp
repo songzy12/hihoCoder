@@ -34,4 +34,5 @@ int main() {
     return 0;
 }
 
+// note the rotate direction
 // note 1L<<63
