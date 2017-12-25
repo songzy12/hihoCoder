@@ -1,0 +1,1 @@
+// http://hihocoder.com/contest/hiho102/problem/1

@@ -1,3 +1,11 @@
-my Name  is Little   Hi.
-His   name IS Little ho  ,  We are   friends.
-  this is a test . that is a test to . asjd , asd .
+2
+4 4
+1 1 0 1
+0 1 1 0
+1 0 0 0
+0 1 0 1
+4 4
+1 0 1 0
+0 1 0 0
+1 0 0 0
+0 0 1 1
